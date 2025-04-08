@@ -36,7 +36,7 @@ public class FootItemServiceImpl implements FoodItemService {
     @Override
     public void updateFoodItem(String foodItemId, FoodItem foodItem) {
         if (foodItemRepository.findById(foodItemId).isPresent()) {
-            foodItemRepository.deleteById(foodItemId);
+            foodItem.setId(foodItemId);
             foodItemRepository.save(foodItem);
         } else {
             throw new FoodItemNotFoundException(foodItemId);
